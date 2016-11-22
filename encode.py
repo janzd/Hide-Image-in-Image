@@ -44,7 +44,7 @@ def main():
 		filename, file_ext = os.path.splitext(output_path)
 		output_path = filename + '.png'
 	else:
-		output_path = 'encoded_image.png'
+		output_path = 'images/encoded_image.png'
 	img_visible = Image.open(img_visible_path)
 	img_hidden = Image.open(img_hidden_path)
 	encoded_image = encode(img_visible, img_hidden)

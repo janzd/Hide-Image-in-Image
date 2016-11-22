@@ -36,7 +36,7 @@ def main():
 		filename, file_ext = os.path.splitext(output_path)
 		output_path = filename + '.png'
 	else:
-		output_path = 'decoded_image.png'
+		output_path = 'images/decoded_image.png'
 	decoded_image = decode(Image.open(img_path))
 	decoded_image.save(output_path)
 
