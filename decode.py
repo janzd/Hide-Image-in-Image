@@ -4,6 +4,22 @@ import os, sys
 from PIL import Image
 from utils import rgb_to_binary
 
+def binStrToInt(binary_str):
+
+
+    """The function binStrToInt() takes in one input, a string of ones and
+    zeros (no spaces) called BINARY_STR.  It treats that input as a binary
+    number (base 2) and converts it to a decimal integer (base 10). It
+    returns an integer result."""
+
+    length = len(binary_str)
+
+    num = 0
+    for i in range(length):
+        num = num + int(binary_str[i])
+        num = num * 2
+    return num / 2
+
 def main():
 	"""
 	Opens an image which contains information of a hidden image,
@@ -89,7 +105,7 @@ def reconstruct_image(image_pixels, width, height):
 			r_binary = image_pixels[idx:idx+8]
 			g_binary = image_pixels[idx+8:idx+16]
 			b_binary = image_pixels[idx+16:idx+24]
-			image_copy[col, row] = (int(r_binary, 2), int(g_binary, 2), int(b_binary, 2))
+			image_copy[col, row] = (binStrToInt(r_binary), binStrToInt(g_binary), binStrToInt(b_binary))
 			idx += 24
 	return image
 	
